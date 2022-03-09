@@ -323,7 +323,7 @@ class NEMBot(object):
     return self.request("POST", path, params).get("albums", [])
 
   def top_playlists(self, cat="全部", order="hot", offset=0, limit=30):
-    """ 获取歌单（网友精选碟）
+    """ 获取热门歌单（网友精选碟）
     :param cat: (optional) 歌单类型，默认 ‘全部’
     :param offset: (optional) 分段起始位置，默认 0
     :param limit: (optional) 数据上限多少行，默认 30
@@ -403,7 +403,7 @@ class NEMBot(object):
     params = dict(ids=ids, br=rate_map[quality])
     return self.request("POST", path, params).get("data", [])
   
-  # 给品论点赞
+  # 给评论点赞
   def like_comment(self, ids):
     path = "/weapi/v1/comment/{}".format(ids)
     params = dict()
