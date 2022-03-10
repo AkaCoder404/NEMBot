@@ -24,6 +24,10 @@ from .const import Constant
 from .encrypt import encrypted_request, md5
 from .storage import Storage
 
+
+from .utils import create_dir
+from .utils import create_file
+
 requests_cache.install_cache(Constant.cache_path, expire_after=3600)
 
 CATEGORIES = OrderedDict(
@@ -54,6 +58,15 @@ class NEMBot(object):
   """
   HOST_URL = "http://music.163.com"
   DEFAULT_TIMEOUT = 10
+
+  def create_config():
+    create_dir(Constant.conf_dir)
+    create_dir(Constant.download_dir)
+    create_file(Constant.storage_path)
+    create_file(Constant.log_path, default="")
+    create_file(Constant.cookie_path, default="#LWP-Cookies-2.0\n")
+
+  create_config()
 
   def __init__(self):
     # Header

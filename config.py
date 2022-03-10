@@ -84,7 +84,7 @@ class Config(Singleton):
             "osdlyrics": {
                 "value": False,
                 "default": False,
-                "describe": "Desktop lyrics for musicbox.",
+                "describe": "Desktop lyrics for musicstorage.",
             },
             "osdlyrics_transparent": {
                 "value": False,

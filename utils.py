@@ -26,4 +26,26 @@ def utf8_data_to_file(f, data):
         f.write(data)
 
 
+def mkdir(path):
+    try:
+        os.mkdir(path)
+        return True
+    except OSError:
+        return False
+
+
+def create_dir(path):
+    if not os.path.exists(path):
+        return mkdir(path)
+    elif os.path.isdir(path):
+        return True
+    else:
+        os.remove(path)
+        return mkdir(path)
+
+
+def create_file(path, default="\n"):
+    if not os.path.exists(path):
+        with open(path, "w") as f:
+            f.write(default)
 
